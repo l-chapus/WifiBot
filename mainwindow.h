@@ -1,36 +1,29 @@
-#ifndef MYROBOT_H
-#define MYROBOT_H
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
 
-#include <QObject>
-#include <QTcpSocket>
-#include <QAbstractSocket>
-#include <QDebug>
-#include <QTimer>
-#include <QMutex>
-#include <QWebEngineView>
+#include <QMainWindow>
+#include <QKeyEvent>
+#include "Robot.h"
 
-class MyRobot : public QObject {
+
+QT_BEGIN_NAMESPACE
+namespace Ui { class mainwindow; }
+QT_END_NAMESPACE
+
+class mainwindow : public QMainWindow
+{
     Q_OBJECT
-public:
-    explicit MyRobot(QObject *parent = 0);
-    void doConnect();
-    void disConnect();
-    QByteArray DataToSend;
-    QByteArray DataReceived;
-    QMutex Mutex;
 
-signals:
-    void updateUI(const QByteArray Data);
-public slots:
-    void connected();
-    void disconnected();
-    void bytesWritten(qint64 bytes);
-    void readyRead();
-    void MyTimerSlot();
+public:
+    mainwindow(QWidget *parent = nullptr);
+    ~mainwindow();
+
+private slots:
+    void keyPressEvent(QKeyEvent *event);
 
 private:
-    QTcpSocket *socket;
-    QTimer *TimerEnvoi;
+    Ui::mainwindow *ui;
+    MyRobot Robot;
 };
 
-#endif // MYROBOT_H
+#endif // MAINWINDOW_H

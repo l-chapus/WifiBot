@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+#include "Robot.h"
 
 #include <QApplication>
 #include <iostream>
@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
 
     WifiBot.doConnect();
 
-    //WifiBot.readyRead();
+    //WifiBot.test();
 
     //WifiBot.disConnect();
 
