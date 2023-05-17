@@ -10,10 +10,12 @@ CONFIG += c++17
 
 SOURCES += \
     main1.cpp \
-    myrobot.cpp
+    myrobot.cpp \
+    robot1.cpp
 
 HEADERS += \
-    myrobot.h
+    myrobot.h \
+    robot1.h
 
 FORMS += \
     myrobot.ui
