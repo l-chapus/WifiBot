@@ -11,8 +11,6 @@ MyRobot::MyRobot(QWidget *parent)
 {
     ui->setupUi(this);
 
-
-
 }
 
 MyRobot::~MyRobot()
