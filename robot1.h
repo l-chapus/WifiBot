@@ -9,6 +9,7 @@ class Robot1
 {
 public:
     Robot1();
+    void avancer();
 };
 
 #endif // ROBOT1_H
