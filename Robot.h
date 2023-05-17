@@ -18,8 +18,9 @@ public:
     QByteArray DataToSend;
     QByteArray DataReceived;
     QMutex Mutex;
-    void test();
+    float test();
     void crcToSend();
+    void avancer();
 
 signals:
     void updateUI(const QByteArray Data);
@@ -29,7 +30,6 @@ public slots:
     void bytesWritten(qint64 bytes);
     void readyRead();
     void MyTimerSlot();
-    void avancer();
 
 private:
     QTcpSocket *socket;

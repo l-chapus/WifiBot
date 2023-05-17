@@ -3,7 +3,7 @@
 #include "Robot.h"
 #include <iostream>
 
-// Fonction donné dans le sujet
+// Fonction donnée dans le sujet
 short Crc16(unsigned char *Adresse_tab , unsigned char Taille_max)
 {
     unsigned int Crc = 0xFFFF;
@@ -67,7 +67,13 @@ void MyRobot::avancer(){
     DataToSend[4] = 100;
     DataToSend[5] = 100 >> 8;
     DataToSend[6] = 80;
+    // on calcul le crc et on l'envoi
     crcToSend();
+}
+float MyRobot::test(){
+    unsigned char data = (DataReceived[1] >> 8);
+    float bat = float(data);
+    return bat;
 }
 
 void MyRobot::doConnect() {
@@ -78,7 +84,7 @@ void MyRobot::doConnect() {
     connect(socket, SIGNAL(readyRead()),this, SLOT(readyRead()));
     qDebug() << "connecting..."; // this is not blocking call
     //socket->connectToHost("LOCALHOST", 15020);
-    socket->connectToHost("192.168.10.1", 5001); // connection to wifibot
+    socket->connectToHost("192.168.10.1", 5008); // connection to wifibot
     // we need to wait...
     if(!socket->waitForConnected(5000)) {
         qDebug() << "Error: " << socket->errorString();
@@ -109,7 +115,10 @@ void MyRobot::readyRead() {
     qDebug() << "reading..."; // read the data from the socket
     DataReceived = socket->readAll();
     emit updateUI(DataReceived);
-    qDebug() << DataReceived[0] << DataReceived[1] << DataReceived[5];
+    unsigned char data = (DataReceived[2] >> 2);
+    float bat = float(data);
+    qDebug() << bat;
+    //qDebug() << DataReceived[0] << DataReceived[1] << DataReceived[2];
 }
 
 void MyRobot::MyTimerSlot() {

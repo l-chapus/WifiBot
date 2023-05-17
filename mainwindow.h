@@ -7,22 +7,22 @@
 
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class mainwindow; }
+namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
-class mainwindow : public QMainWindow
+class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    mainwindow(QWidget *parent = nullptr);
-    ~mainwindow();
+    MainWindow(QWidget *parent = nullptr);
+    ~MainWindow();
 
 private slots:
     void keyPressEvent(QKeyEvent *event);
 
 private:
-    Ui::mainwindow *ui;
+    Ui::MainWindow *ui;
     MyRobot Robot;
 };
 

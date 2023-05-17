@@ -3,6 +3,8 @@
 #include <QApplication>
 #include <iostream>
 
+
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -10,9 +12,11 @@ int main(int argc, char *argv[])
 
     WifiBot.doConnect();
 
-    //WifiBot.test();
+    WifiBot.avancer();
+    std::cout << "Données reçues (hexadécimal) : " << WifiBot.test() << std::endl;;
 
     //WifiBot.disConnect();
 
     return a.exec();
 }
+
