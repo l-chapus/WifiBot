@@ -62,6 +62,40 @@ void Robot::crcToSend(){
 }
 
 void Robot::avancer(){
+    std::cout << "AVANCER" << std::endl;
+    DataToSend[2] = 100;
+    DataToSend[3] = 100 >> 8;
+    DataToSend[4] = 100;
+    DataToSend[5] = 100 >> 8;
+    DataToSend[6] = 80;
+    // on calcul le crc et on l'envoi
+    crcToSend();
+}
+void Robot::reculer(){
+    std::cout << "RECULER" << std::endl;
+    // VALEUR A DéFINIR
+    DataToSend[2] = 100;
+    DataToSend[3] = 100 >> 8;
+    DataToSend[4] = 100;
+    DataToSend[5] = 100 >> 8;
+    DataToSend[6] = 80;
+    // on calcul le crc et on l'envoi
+    crcToSend();
+}
+void Robot::gauche(){
+    std::cout << "GAUCHE" << std::endl;
+    // VALEUR A DéFINIR
+    DataToSend[2] = 100;
+    DataToSend[3] = 100 >> 8;
+    DataToSend[4] = 100;
+    DataToSend[5] = 100 >> 8;
+    DataToSend[6] = 80;
+    // on calcul le crc et on l'envoi
+    crcToSend();
+}
+void Robot::droite(){
+    std::cout << "DROITE" << std::endl;
+    // VALEUR A DéFINIR
     DataToSend[2] = 100;
     DataToSend[3] = 100 >> 8;
     DataToSend[4] = 100;

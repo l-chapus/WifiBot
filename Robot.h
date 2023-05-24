@@ -7,7 +7,8 @@
 #include <QDebug>
 #include <QTimer>
 #include <QMutex>
-#include <QWebEngineView>
+
+//#include <QWebEngineView>
 
 class Robot : public QObject {
     Q_OBJECT
@@ -21,9 +22,13 @@ public:
     float test();
     void crcToSend();
     void avancer();
+    void reculer();
+    void gauche();
+    void droite();
 
 signals:
     void updateUI(const QByteArray Data);
+
 public slots:
     void connected();
     void disconnected();
