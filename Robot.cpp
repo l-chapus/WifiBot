@@ -33,7 +33,7 @@ short Crc16(unsigned char *Adresse_tab , unsigned char Taille_max)
     return(Crc);
 }
 
-MyRobot::MyRobot(QObject *parent) : QObject(parent) {
+Robot::Robot(QObject *parent) : QObject(parent) {
     DataToSend.resize(9);
     DataToSend[0] = 0xFF;
     DataToSend[1] = 0x07;
@@ -52,7 +52,7 @@ MyRobot::MyRobot(QObject *parent) : QObject(parent) {
 
 
 //Fonction d'envoie du crc
-void MyRobot::crcToSend(){
+void Robot::crcToSend(){
     unsigned char *dat=(unsigned char *)DataToSend.data();
     short crc = Crc16(dat+1,6);
     DataToSend[7] = (char) crc;
@@ -61,7 +61,7 @@ void MyRobot::crcToSend(){
     // setup signal and slot
 }
 
-void MyRobot::avancer(){
+void Robot::avancer(){
     DataToSend[2] = 100;
     DataToSend[3] = 100 >> 8;
     DataToSend[4] = 100;
@@ -70,13 +70,14 @@ void MyRobot::avancer(){
     // on calcul le crc et on l'envoi
     crcToSend();
 }
-float MyRobot::test(){
+
+float Robot::test(){
     unsigned char data = (DataReceived[1] >> 8);
     float bat = float(data);
     return bat;
 }
 
-void MyRobot::doConnect() {
+void Robot::doConnect() {
     socket = new QTcpSocket(this); // socket creation
     connect(socket, SIGNAL(connected()),this, SLOT(connected()));
     connect(socket, SIGNAL(disconnected()),this, SLOT(disconnected()));
@@ -94,24 +95,24 @@ void MyRobot::doConnect() {
 
 }
 
-void MyRobot::disConnect() {
+void Robot::disConnect() {
     TimerEnvoi->stop();
     socket->close();
 }
 
-void MyRobot::connected() {
+void Robot::connected() {
     qDebug() << "connected..."; // Hey server, tell me about you.
 }
 
-void MyRobot::disconnected() {
+void Robot::disconnected() {
     qDebug() << "disconnected...";
 }
 
-void MyRobot::bytesWritten(qint64 bytes) {
+void Robot::bytesWritten(qint64 bytes) {
     qDebug() << bytes << " bytes written...";
 }
 
-void MyRobot::readyRead() {
+void Robot::readyRead() {
     qDebug() << "reading..."; // read the data from the socket
     DataReceived = socket->readAll();
     emit updateUI(DataReceived);
@@ -121,7 +122,7 @@ void MyRobot::readyRead() {
     //qDebug() << DataReceived[0] << DataReceived[1] << DataReceived[2];
 }
 
-void MyRobot::MyTimerSlot() {
+void Robot::MyTimerSlot() {
     qDebug() << "Timer...";
     while(Mutex.tryLock());
     socket->write(DataToSend);

@@ -1,5 +1,5 @@
-#ifndef MYROBOT_H
-#define MYROBOT_H
+#ifndef ROBOT_H
+#define ROBOT_H
 
 #include <QObject>
 #include <QTcpSocket>
@@ -9,10 +9,10 @@
 #include <QMutex>
 #include <QWebEngineView>
 
-class MyRobot : public QObject {
+class Robot : public QObject {
     Q_OBJECT
 public:
-    explicit MyRobot(QObject *parent = 0);
+    explicit Robot(QObject *parent = 0);
     void doConnect();
     void disConnect();
     QByteArray DataToSend;
@@ -36,4 +36,4 @@ private:
     QTimer *TimerEnvoi;
 };
 
-#endif // MYROBOT_H
+#endif // ROBOT_H
