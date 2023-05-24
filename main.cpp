@@ -1,17 +1,15 @@
-
+#include "Robot.h"
 #include "myrobot.h"
-#include "robot1.h"
 
 #include <QApplication>
+#include <iostream>
+
 
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MyRobot w;
-    w.show();
-
-    //Robot1 WifiBot;
+    Robot WifiBot;
 
     //WifiBot.doConnect();
 
@@ -20,5 +18,9 @@ int main(int argc, char *argv[])
 
     //WifiBot.disConnect();
 
+    MyRobot w;
+    w.show();
+
     return a.exec();
 }
+

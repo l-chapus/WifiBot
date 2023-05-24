@@ -1,8 +1,9 @@
+// myrobot.cpp
 
-#include "robot1.h"
+#include "Robot.h"
 #include <iostream>
-#include <QApplication>
 
+// Fonction donnée dans le sujet
 short Crc16(unsigned char *Adresse_tab , unsigned char Taille_max)
 {
     unsigned int Crc = 0xFFFF;
@@ -32,7 +33,7 @@ short Crc16(unsigned char *Adresse_tab , unsigned char Taille_max)
     return(Crc);
 }
 
-Robot1::Robot1(QObject *parent) : QObject(parent) {
+Robot::Robot(QObject *parent) : QObject(parent) {
     DataToSend.resize(9);
     DataToSend[0] = 0xFF;
     DataToSend[1] = 0x07;
@@ -50,9 +51,8 @@ Robot1::Robot1(QObject *parent) : QObject(parent) {
 }
 
 
-
 //Fonction d'envoie du crc
-void Robot1::crcToSend(){
+void Robot::crcToSend(){
     unsigned char *dat=(unsigned char *)DataToSend.data();
     short crc = Crc16(dat+1,6);
     DataToSend[7] = (char) crc;
@@ -61,7 +61,41 @@ void Robot1::crcToSend(){
     // setup signal and slot
 }
 
-void Robot1::avancer(){
+void Robot::avancer(){
+    std::cout << "AVANCER" << std::endl;
+    DataToSend[2] = 100;
+    DataToSend[3] = 100 >> 8;
+    DataToSend[4] = 100;
+    DataToSend[5] = 100 >> 8;
+    DataToSend[6] = 80;
+    // on calcul le crc et on l'envoi
+    crcToSend();
+}
+void Robot::reculer(){
+    std::cout << "RECULER" << std::endl;
+    // VALEUR A DéFINIR
+    DataToSend[2] = 100;
+    DataToSend[3] = 100 >> 8;
+    DataToSend[4] = 100;
+    DataToSend[5] = 100 >> 8;
+    DataToSend[6] = 80;
+    // on calcul le crc et on l'envoi
+    crcToSend();
+}
+void Robot::gauche(){
+    std::cout << "GAUCHE" << std::endl;
+    // VALEUR A DéFINIR
+    DataToSend[2] = 100;
+    DataToSend[3] = 100 >> 8;
+    DataToSend[4] = 100;
+    DataToSend[5] = 100 >> 8;
+    DataToSend[6] = 80;
+    // on calcul le crc et on l'envoi
+    crcToSend();
+}
+void Robot::droite(){
+    std::cout << "DROITE" << std::endl;
+    // VALEUR A DéFINIR
     DataToSend[2] = 100;
     DataToSend[3] = 100 >> 8;
     DataToSend[4] = 100;
@@ -71,13 +105,13 @@ void Robot1::avancer(){
     crcToSend();
 }
 
-float Robot1::test(){
+float Robot::test(){
     unsigned char data = (DataReceived[1] >> 8);
     float bat = float(data);
     return bat;
 }
 
-void Robot1::doConnect() {
+void Robot::doConnect() {
     socket = new QTcpSocket(this); // socket creation
     connect(socket, SIGNAL(connected()),this, SLOT(connected()));
     connect(socket, SIGNAL(disconnected()),this, SLOT(disconnected()));
@@ -95,24 +129,24 @@ void Robot1::doConnect() {
 
 }
 
-void Robot1::disConnect() {
+void Robot::disConnect() {
     TimerEnvoi->stop();
     socket->close();
 }
 
-void Robot1::connected() {
+void Robot::connected() {
     qDebug() << "connected..."; // Hey server, tell me about you.
 }
 
-void Robot1::disconnected() {
+void Robot::disconnected() {
     qDebug() << "disconnected...";
 }
 
-void Robot1::bytesWritten(qint64 bytes) {
+void Robot::bytesWritten(qint64 bytes) {
     qDebug() << bytes << " bytes written...";
 }
 
-void Robot1::readyRead() {
+void Robot::readyRead() {
     qDebug() << "reading..."; // read the data from the socket
     DataReceived = socket->readAll();
     emit updateUI(DataReceived);
@@ -122,10 +156,9 @@ void Robot1::readyRead() {
     //qDebug() << DataReceived[0] << DataReceived[1] << DataReceived[2];
 }
 
-void Robot1::MyTimerSlot() {
+void Robot::MyTimerSlot() {
     qDebug() << "Timer...";
     while(Mutex.tryLock());
     socket->write(DataToSend);
     Mutex.unlock();
 }
-

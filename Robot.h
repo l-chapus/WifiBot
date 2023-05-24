@@ -1,6 +1,5 @@
-
-#ifndef ROBOT1_H
-#define ROBOT1_H
+#ifndef ROBOT_H
+#define ROBOT_H
 
 #include <QObject>
 #include <QTcpSocket>
@@ -8,16 +7,12 @@
 #include <QDebug>
 #include <QTimer>
 #include <QMutex>
-#include <QByteArray>
+#include <QWebEngineView>
 
-
-
-
-class Robot1 : public QObject {
+class Robot : public QObject {
     Q_OBJECT
-
 public:
-    explicit Robot1(QObject *parent = 0);
+    explicit Robot(QObject *parent = 0);
     void doConnect();
     void disConnect();
     QByteArray DataToSend;
@@ -26,6 +21,9 @@ public:
     float test();
     void crcToSend();
     void avancer();
+    void reculer();
+    void gauche();
+    void droite();
 
 signals:
     void updateUI(const QByteArray Data);
@@ -40,9 +38,6 @@ public slots:
 private:
     QTcpSocket *socket;
     QTimer *TimerEnvoi;
-
 };
 
-
-
-#endif // ROBOT1_H
+#endif // ROBOT_H

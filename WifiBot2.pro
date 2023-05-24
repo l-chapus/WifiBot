@@ -1,5 +1,7 @@
 QT       += core gui
 
+QT       += webenginewidgets
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets network
 
 CONFIG += c++17
@@ -9,13 +11,13 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    main1.cpp \
-    myrobot.cpp \
-    robot1.cpp
+    Robot.cpp \
+    main.cpp \
+    myrobot.cpp
 
 HEADERS += \
-    myrobot.h \
-    robot1.h
+    Robot.h \
+    myrobot.h
 
 FORMS += \
     myrobot.ui
