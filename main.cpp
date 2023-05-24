@@ -14,7 +14,6 @@ int main(int argc, char *argv[])
     //WifiBot.doConnect();
 
     //WifiBot.avancer();
-    //std::cout << "Données reçues (hexadécimal) : " << WifiBot.test() << std::endl;
 
     //WifiBot.disConnect();
 

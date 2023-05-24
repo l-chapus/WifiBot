@@ -8,7 +8,7 @@
 #include <QTimer>
 #include <QMutex>
 
-//#include <QWebEngineView>
+#include <QWebEngineView>
 
 class Robot : public QObject {
     Q_OBJECT
