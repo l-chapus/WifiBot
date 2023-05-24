@@ -11,6 +11,7 @@ MyRobot::MyRobot(QWidget *parent)
 {
     ui->setupUi(this);
 
+    ui->crcNum->display(23);
 
 }
 
