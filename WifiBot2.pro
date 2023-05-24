@@ -20,7 +20,7 @@ HEADERS += \
     myrobot.h
 
 FORMS += \
-    Robot.ui
+    myrobot.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

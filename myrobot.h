@@ -18,6 +18,7 @@ public:
     MyRobot(QWidget *parent = nullptr);
     ~MyRobot();
 
+
 private:
     Ui::MyRobot *ui;
 };

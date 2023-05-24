@@ -1,6 +1,6 @@
 #include "myrobot.h"
 
-#include "ui_Robot.h"
+#include "ui_myrobot.h"
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QPushButton>
