@@ -1,5 +1,7 @@
+
 #ifndef ROBOT_H
 #define ROBOT_H
+
 
 #include <QObject>
 #include <QTcpSocket>
@@ -7,8 +9,6 @@
 #include <QDebug>
 #include <QTimer>
 #include <QMutex>
-
-//#include <QWebEngineView>
 
 class Robot : public QObject {
     Q_OBJECT

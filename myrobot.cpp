@@ -1,4 +1,6 @@
+
 #include "myrobot.h"
+#include "ui_myrobot.h"
 
 #include "ui_myrobot.h"
 #include <QHBoxLayout>
@@ -11,8 +13,6 @@ MyRobot::MyRobot(QWidget *parent)
     , ui(new Ui::MyRobot)
 {
     ui->setupUi(this);
-
-
 }
 
 MyRobot::~MyRobot()
@@ -40,3 +40,4 @@ void MyRobot::keyPressEvent(QKeyEvent *event)
         WifiBot.droite();
     }
 }
+
