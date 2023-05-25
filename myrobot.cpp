@@ -5,6 +5,7 @@
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QKeyEvent>
+#include <iostream>
 
 MyRobot::MyRobot(QWidget *parent)
     : QMainWindow(parent)
@@ -12,12 +13,20 @@ MyRobot::MyRobot(QWidget *parent)
 {
     ui->setupUi(this);
 
-
+    connect(ui->connect,&QPushButton::clicked,this,&MyRobot::connection);
+    connect(ui->disconnect,&QPushButton::clicked,this,&MyRobot::deconnection);
 }
 
 MyRobot::~MyRobot()
 {
     delete ui;
+}
+
+void MyRobot::connection(){
+    WifiBot.doConnect();
+}
+void MyRobot::deconnection(){
+    WifiBot.disConnect();
 }
 
 //Contrôle du robot et de la caméra avec les différentes touche du clavier
@@ -38,5 +47,9 @@ void MyRobot::keyPressEvent(QKeyEvent *event)
     if (event->key() == Qt::Key_D)
     {
         WifiBot.droite();
+    }
+    if (event->key() == Qt::Key_Space)
+    {
+        WifiBot.stop();
     }
 }

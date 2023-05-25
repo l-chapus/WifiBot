@@ -18,6 +18,8 @@ public:
     MyRobot(QWidget *parent = nullptr);
     ~MyRobot();
     void keyPressEvent(QKeyEvent *event);
+    void connection();
+    void deconnection();
 
 private:
     Ui::MyRobot *ui;

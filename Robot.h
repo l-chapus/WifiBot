@@ -19,12 +19,12 @@ public:
     QByteArray DataToSend;
     QByteArray DataReceived;
     QMutex Mutex;
-    float test();
     void crcToSend();
     void avancer();
     void reculer();
     void gauche();
     void droite();
+    void stop();
 
 signals:
     void updateUI(const QByteArray Data);
