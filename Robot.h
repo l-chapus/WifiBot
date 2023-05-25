@@ -21,6 +21,7 @@ public:
     QMutex Mutex;
     float test();
     void crcToSend();
+    short crcReturn();
     void avancer();
     void reculer();
     void gauche();

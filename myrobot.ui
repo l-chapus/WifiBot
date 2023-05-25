@@ -39,21 +39,6 @@
      </rect>
     </property>
    </widget>
-   <widget class="QDoubleSpinBox" name="odometrieBox">
-    <property name="geometry">
-     <rect>
-      <x>641</x>
-      <y>151</y>
-      <width>50</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>11</pointsize>
-     </font>
-    </property>
-   </widget>
    <widget class="QPushButton" name="connect">
     <property name="geometry">
      <rect>
@@ -282,7 +267,7 @@
      <string>&lt;</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="droit">
+   <widget class="QPushButton" name="droite">
     <property name="geometry">
      <rect>
       <x>770</x>
@@ -347,6 +332,26 @@
     </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="odometrieG">
+    <property name="geometry">
+     <rect>
+      <x>642</x>
+      <y>151</y>
+      <width>64</width>
+      <height>23</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="odometrieD">
+    <property name="geometry">
+     <rect>
+      <x>712</x>
+      <y>151</y>
+      <width>64</width>
+      <height>23</height>
+     </rect>
     </property>
    </widget>
   </widget>
