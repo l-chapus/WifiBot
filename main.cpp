@@ -10,11 +10,6 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    //Robot WifiBot;
-    //WifiBot.doConnect();
-    //WifiBot.avancer();
-    //WifiBot.disConnect();
-
     MyRobot w;
     w.show();
 

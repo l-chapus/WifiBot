@@ -62,56 +62,46 @@ void Robot::crcToSend(){
 }
 
 void Robot::avancer(){
-    std::cout << "AVANCER" << std::endl;
     DataToSend[2] = 100;
     DataToSend[3] = 100 >> 8;
     DataToSend[4] = 100;
     DataToSend[5] = 100 >> 8;
-    DataToSend[6] = 80;
+    DataToSend[6] = 1;
     // on calcul le crc et on l'envoi
     crcToSend();
 }
 void Robot::reculer(){
-    std::cout << "RECULER" << std::endl;
-
-    // VALEUR A DéFINIR
     DataToSend[2] = 100;
     DataToSend[3] = 100 >> 8;
-    DataToSend[4] = 80;
-    DataToSend[5] = 80 >> 8;
-    DataToSend[6] = 100;
+    DataToSend[4] = 100;
+    DataToSend[5] = 100 >> 8;
+    DataToSend[6] = 0;
     // on calcul le crc et on l'envoi
     crcToSend();
 }
 void Robot::gauche(){
-    std::cout << "GAUCHE" << std::endl;
-
-    // VALEUR A DéFINIR
-    DataToSend[2] = 0;
-    DataToSend[3] = 0 >> 8;
+    DataToSend[2] = 50;
+    DataToSend[3] = 50 >> 8;
     DataToSend[4] = 0;
     DataToSend[5] = 0 >> 8;
-    DataToSend[6] = 0;
+    DataToSend[6] = 10;
     // on calcul le crc et on l'envoi
     crcToSend();
 }
 void Robot::droite(){
-    std::cout << "DROITE" << std::endl;
-
-    // VALEUR A DéFINIR
     DataToSend[2] = 0;
     DataToSend[3] = 0 >> 8;
-    DataToSend[4] = 0;
-    DataToSend[5] = 0 >> 8;
-    DataToSend[6] = 0;
+    DataToSend[4] = 50;
+    DataToSend[5] = 50 >> 8;
+    DataToSend[6] = 10;
     // on calcul le crc et on l'envoi
     crcToSend();
 }
 void Robot::stop(){
     DataToSend[2] = 0;
-    DataToSend[3] = 0 >> 8;
+    DataToSend[3] = 0;
     DataToSend[4] = 0;
-    DataToSend[5] = 0 >> 8;
+    DataToSend[5] = 0;
     DataToSend[6] = 0;
     // on calcul le crc et on l'envoi
     crcToSend();
@@ -125,7 +115,7 @@ void Robot::doConnect() {
     connect(socket, SIGNAL(readyRead()),this, SLOT(readyRead()));
     qDebug() << "connecting..."; // this is not blocking call
     //socket->connectToHost("LOCALHOST", 15020);
-    socket->connectToHost("192.168.10.1", 5002); // connection to wifibot
+    socket->connectToHost("192.168.10.1", 5001); // connection to wifibot
     // we need to wait...
     if(!socket->waitForConnected(5000)) {
         qDebug() << "Error: " << socket->errorString();
