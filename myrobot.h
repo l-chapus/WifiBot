@@ -20,6 +20,7 @@ public:
     MyRobot(QWidget *parent = nullptr);
     ~MyRobot();
     void keyPressEvent(QKeyEvent *event);
+    void connection();
 
 private:
     Ui::MyRobot *ui;

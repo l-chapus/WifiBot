@@ -13,11 +13,17 @@ MyRobot::MyRobot(QWidget *parent)
     , ui(new Ui::MyRobot)
 {
     ui->setupUi(this);
+
+    connect(ui->connect,&QPushButton::clicked,this,&MyRobot::connection);
 }
 
 MyRobot::~MyRobot()
 {
     delete ui;
+}
+
+void MyRobot::connection(){
+    WifiBot.doConnect();
 }
 
 //Contrôle du robot et de la caméra avec les différentes touche du clavier
