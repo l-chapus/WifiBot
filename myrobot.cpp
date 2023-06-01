@@ -7,6 +7,7 @@
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QKeyEvent>
+#include <QLCDNumber>
 
 MyRobot::MyRobot(QWidget *parent)
     : QMainWindow(parent)
@@ -14,7 +15,7 @@ MyRobot::MyRobot(QWidget *parent)
 {
     ui->setupUi(this);
 
-    connect(ui->crcNum,&QLCDNumber::show,this,&MyRobot::crcAffichage);
+    ui->crcNum->overflow(&MyRobot::crcAffichage);
 
     connect(ui->connect,&QPushButton::clicked,this,&MyRobot::connection);
     connect(ui->disconnect,&QPushButton::clicked,this,&MyRobot::deconnection);
@@ -29,8 +30,9 @@ MyRobot::~MyRobot()
     delete ui;
 }
 
-short MyRobot::crcAffichage(){
-    return WifiBot.crcReturn();
+void MyRobot::crcAffichage(){
+    short int crc = WifiBot.crcReturn();
+    ui->crcNum->display(crc);
 }
 
 void MyRobot::connection(){

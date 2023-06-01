@@ -64,10 +64,6 @@ void Robot::crcToSend(){
 short Robot::crcReturn(){
     unsigned char *dat=(unsigned char *)DataToSend.data();
     short crc = Crc16(dat+1,6);
-    DataToSend[7] = (char) crc;
-    DataToSend[8] = (char) (crc >>8);
-    DataReceived.resize(21);
-    // setup signal and slot
     return crc;
 }
 
@@ -129,7 +125,7 @@ void Robot::doConnect() {
     connect(socket, SIGNAL(readyRead()),this, SLOT(readyRead()));
     qDebug() << "connecting..."; // this is not blocking call
     //socket->connectToHost("LOCALHOST", 15020);
-    socket->connectToHost("192.168.10.1", 5009); // connection to wifibot
+    socket->connectToHost("192.168.10.1", 5006); // connection to wifibot
     // we need to wait...
     if(!socket->waitForConnected(5000)) {
         qDebug() << "Error: " << socket->errorString();

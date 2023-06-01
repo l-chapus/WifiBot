@@ -14,21 +14,6 @@
    <string>MyRobot</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QSpinBox" name="spinBoxDB">
-    <property name="geometry">
-     <rect>
-      <x>780</x>
-      <y>450</y>
-      <width>42</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>11</pointsize>
-     </font>
-    </property>
-   </widget>
    <widget class="QLCDNumber" name="crcNum">
     <property name="geometry">
      <rect>
@@ -78,21 +63,6 @@
      <string>Disconnect</string>
     </property>
    </widget>
-   <widget class="QSpinBox" name="spinBoxGB">
-    <property name="geometry">
-     <rect>
-      <x>610</x>
-      <y>450</y>
-      <width>42</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>11</pointsize>
-     </font>
-    </property>
-   </widget>
    <widget class="QLabel" name="odometrie">
     <property name="geometry">
      <rect>
@@ -109,21 +79,6 @@
     </property>
     <property name="text">
      <string>Odométrie</string>
-    </property>
-   </widget>
-   <widget class="QSpinBox" name="spinBoxGH">
-    <property name="geometry">
-     <rect>
-      <x>610</x>
-      <y>360</y>
-      <width>42</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>11</pointsize>
-     </font>
     </property>
    </widget>
    <widget class="QLabel" name="vitesseD">
@@ -234,21 +189,6 @@
      <string>^</string>
     </property>
    </widget>
-   <widget class="QSpinBox" name="spinBoxDH">
-    <property name="geometry">
-     <rect>
-      <x>780</x>
-      <y>360</y>
-      <width>42</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>11</pointsize>
-     </font>
-    </property>
-   </widget>
    <widget class="QPushButton" name="gauche">
     <property name="geometry">
      <rect>
@@ -349,6 +289,46 @@
      <rect>
       <x>712</x>
       <y>151</y>
+      <width>64</width>
+      <height>23</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdArG">
+    <property name="geometry">
+     <rect>
+      <x>590</x>
+      <y>450</y>
+      <width>64</width>
+      <height>23</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdArD">
+    <property name="geometry">
+     <rect>
+      <x>770</x>
+      <y>450</y>
+      <width>64</width>
+      <height>23</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdAvD">
+    <property name="geometry">
+     <rect>
+      <x>770</x>
+      <y>360</y>
+      <width>64</width>
+      <height>23</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdAvG">
+    <property name="geometry">
+     <rect>
+      <x>590</x>
+      <y>360</y>
       <width>64</width>
       <height>23</height>
      </rect>
