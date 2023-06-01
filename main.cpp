@@ -1,4 +1,3 @@
-#include "Robot.h"
 #include "myrobot.h"
 
 #include <QApplication>

@@ -15,6 +15,10 @@ MyRobot::MyRobot(QWidget *parent)
 
     connect(ui->connect,&QPushButton::clicked,this,&MyRobot::connection);
     connect(ui->disconnect,&QPushButton::clicked,this,&MyRobot::deconnection);
+    connect(ui->droit,&QPushButton::clicked,this,&MyRobot::droit);
+    connect(ui->gauche,&QPushButton::clicked,this,&MyRobot::gauche);
+    connect(ui->haut,&QPushButton::clicked,this,&MyRobot::avancer);
+    connect(ui->bas,&QPushButton::clicked,this,&MyRobot::reculer);
 }
 
 MyRobot::~MyRobot()
@@ -29,7 +33,20 @@ void MyRobot::deconnection(){
     WifiBot.disConnect();
 }
 
-//Contrôle du robot et de la caméra avec les différentes touche du clavier
+void MyRobot::droit(){
+    WifiBot.droite();
+}
+void MyRobot::gauche(){
+    WifiBot.gauche();
+}
+void MyRobot::avancer(){
+    WifiBot.avancer();
+}
+void MyRobot::reculer(){
+    WifiBot.reculer();
+}
+
+//Contrôle du robot avec les différentes touche du clavier
 void MyRobot::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Z)

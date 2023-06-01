@@ -1,4 +1,4 @@
-// myrobot.cpp
+    // myrobot.cpp
 
 #include "Robot.h"
 #include <iostream>
@@ -115,7 +115,7 @@ void Robot::doConnect() {
     connect(socket, SIGNAL(readyRead()),this, SLOT(readyRead()));
     qDebug() << "connecting..."; // this is not blocking call
     //socket->connectToHost("LOCALHOST", 15020);
-    socket->connectToHost("192.168.10.1", 5001); // connection to wifibot
+    socket->connectToHost("192.168.10.1", 5002); // connection to wifibot
     // we need to wait...
     if(!socket->waitForConnected(5000)) {
         qDebug() << "Error: " << socket->errorString();
