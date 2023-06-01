@@ -15,24 +15,18 @@ MyRobot::MyRobot(QWidget *parent)
 {
     ui->setupUi(this);
 
-    ui->crcNum->overflow(&MyRobot::crcAffichage);
-
     connect(ui->connect,&QPushButton::clicked,this,&MyRobot::connection);
     connect(ui->disconnect,&QPushButton::clicked,this,&MyRobot::deconnection);
     connect(ui->haut,&QPushButton::clicked,this,&MyRobot::haut);
     connect(ui->bas,&QPushButton::clicked,this,&MyRobot::bas);
     connect(ui->gauche,&QPushButton::clicked,this,&MyRobot::gauche);
     connect(ui->droite,&QPushButton::clicked,this,&MyRobot::droite);
+
 }
 
 MyRobot::~MyRobot()
 {
     delete ui;
-}
-
-void MyRobot::crcAffichage(){
-    short int crc = WifiBot.crcReturn();
-    ui->crcNum->display(crc);
 }
 
 void MyRobot::connection(){
@@ -79,4 +73,12 @@ void MyRobot::keyPressEvent(QKeyEvent *event)
         WifiBot.droite();
     }
 }
+
+void MyRobot::batterie() {
+    unsigned char data = (WifiBot.DataReceived[2] >> 2);
+    int bat = int(data);
+
+    ui->batterieBar->alignment();
+}
+
 

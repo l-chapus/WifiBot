@@ -20,13 +20,15 @@ public:
     MyRobot(QWidget *parent = nullptr);
     ~MyRobot();
     void keyPressEvent(QKeyEvent *event);
-    void crcAffichage();
     void connection();
     void deconnection();
     void haut();
     void bas();
     void droite();
     void gauche();
+
+    void batterie();
+
 
 private:
     Ui::MyRobot *ui;
