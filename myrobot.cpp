@@ -5,7 +5,8 @@
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QKeyEvent>
-#include <iostream>
+#include <QWebEngineView>
+#include <QWidget>
 
 MyRobot::MyRobot(QWidget *parent)
     : QMainWindow(parent)
@@ -26,9 +27,12 @@ MyRobot::~MyRobot()
     delete ui;
 }
 
+// bouton de connexion
 void MyRobot::connection(){
     WifiBot.doConnect();
 }
+
+// bouton de déconnexion
 void MyRobot::deconnection(){
     WifiBot.disConnect();
 }
@@ -46,7 +50,7 @@ void MyRobot::reculer(){
     WifiBot.reculer();
 }
 
-//Contrôle du robot avec les différentes touche du clavier
+//Contrôle le déplacement du robot avec les différentes touche du clavier
 void MyRobot::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Z)

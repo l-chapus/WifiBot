@@ -7,7 +7,6 @@
 #include <QDebug>
 #include <QTimer>
 #include <QMutex>
-
 #include <QWebEngineView>
 
 class Robot : public QObject {

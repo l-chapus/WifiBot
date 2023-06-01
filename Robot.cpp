@@ -66,7 +66,7 @@ void Robot::avancer(){
     DataToSend[3] = 100 >> 8;
     DataToSend[4] = 100;
     DataToSend[5] = 100 >> 8;
-    DataToSend[6] = 1;
+    DataToSend[6] = 80;
     // on calcul le crc et on l'envoi
     crcToSend();
 }
@@ -84,7 +84,7 @@ void Robot::gauche(){
     DataToSend[3] = 50 >> 8;
     DataToSend[4] = 0;
     DataToSend[5] = 0 >> 8;
-    DataToSend[6] = 10;
+    DataToSend[6] = 16;
     // on calcul le crc et on l'envoi
     crcToSend();
 }
@@ -93,7 +93,7 @@ void Robot::droite(){
     DataToSend[3] = 0 >> 8;
     DataToSend[4] = 50;
     DataToSend[5] = 50 >> 8;
-    DataToSend[6] = 10;
+    DataToSend[6] = 16;
     // on calcul le crc et on l'envoi
     crcToSend();
 }
@@ -102,7 +102,7 @@ void Robot::stop(){
     DataToSend[3] = 0;
     DataToSend[4] = 0;
     DataToSend[5] = 0;
-    DataToSend[6] = 0;
+    DataToSend[6] = 80;
     // on calcul le crc et on l'envoi
     crcToSend();
 }
