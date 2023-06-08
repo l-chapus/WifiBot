@@ -32,6 +32,9 @@ MyRobot::MyRobot(QWidget *parent)
     // affichage de la caméra
     QWebEngineView *video = new QWebEngineView();
     afficherCamera(video);
+
+    // affichage des informations sur l'interface
+    afficherInformation();
 }
 
 MyRobot::~MyRobot()
@@ -42,11 +45,13 @@ MyRobot::~MyRobot()
 // bouton de connexion
 void MyRobot::connection(){
     WifiBot.doConnect();
+    etat = true;
 }
 
 // bouton de déconnexion
 void MyRobot::deconnection(){
     WifiBot.disConnect();
+    etat = true;
 }
 
 void MyRobot::droit(){
@@ -65,7 +70,7 @@ void MyRobot::stop(){
     WifiBot.stop();
 }
 
-//Contrôle le déplacement du robot avec les différentes touche du clavier
+//Contrôle le déplacement du robot avec les différentes touches du clavier
 void MyRobot::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Z)
@@ -99,4 +104,18 @@ void MyRobot::afficherCamera(QWebEngineView *video){
     video->load(url);
     video->setParent(ui->cam);
     video->show();
+}
+
+void MyRobot::afficherInformation(){
+    // regarde si le robot est connecter ou pas
+    if(etat){
+        QByteArray data = WifiBot.donneRecu();
+        unsigned char batterie = (data[2] >> 2);
+        float bat = float(batterie);
+
+        QLCDNumber *lcdnumber = new QLCDNumber;
+        lcdnumber = ui->crcNum;
+        int value = bat;
+        lcdnumber->display(value);
+    }
 }

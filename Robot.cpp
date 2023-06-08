@@ -113,6 +113,7 @@ void Robot::doConnect() {
     connect(socket, SIGNAL(disconnected()),this, SLOT(disconnected()));
     connect(socket, SIGNAL(bytesWritten(qint64)),this, SLOT(bytesWritten(qint64)));
     connect(socket, SIGNAL(readyRead()),this, SLOT(readyRead()));
+    //connect(socket, SIGNAL(donneRecu()),this, SLOT(donneRecu()));
     qDebug() << "connecting..."; // this is not blocking call
     //socket->connectToHost("LOCALHOST", 15020);
     socket->connectToHost("192.168.10.1", 5002); // connection to wifibot
@@ -146,10 +147,14 @@ void Robot::readyRead() {
     qDebug() << "reading..."; // read the data from the socket
     DataReceived = socket->readAll();
     emit updateUI(DataReceived);
-    unsigned char data = (DataReceived[2] >> 2);
-    float bat = float(data);
-    qDebug() << bat;
     //qDebug() << DataReceived[0] << DataReceived[1] << DataReceived[2];
+}
+
+// renvoie les données reçu par le robot
+QByteArray Robot::donneRecu(){
+    DataReceived = socket->readAll();
+    emit updateUI(DataReceived);
+    return DataReceived;
 }
 
 void Robot::MyTimerSlot() {

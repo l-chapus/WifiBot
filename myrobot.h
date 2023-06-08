@@ -24,6 +24,7 @@ public:
 private:
     Ui::MyRobot *ui;
     Robot WifiBot;
+    bool etat =false;
 
     void droit();
     void gauche();
@@ -31,6 +32,8 @@ private:
     void reculer();
     void stop();
     void afficherCamera(QWebEngineView *video);
+    void afficherInformation();
+
 };
 
 #endif // MYROBOT_H

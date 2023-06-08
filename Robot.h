@@ -24,6 +24,7 @@ public:
     void gauche();
     void droite();
     void stop();
+QByteArray donneRecu();
 
 signals:
     void updateUI(const QByteArray Data);
@@ -34,6 +35,7 @@ public slots:
     void bytesWritten(qint64 bytes);
     void readyRead();
     void MyTimerSlot();
+
 
 private:
     QTcpSocket *socket;
