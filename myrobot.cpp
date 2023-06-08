@@ -1,13 +1,12 @@
-
 #include "myrobot.h"
-#include "ui_myrobot.h"
 
 #include "ui_myrobot.h"
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QKeyEvent>
-#include <QLCDNumber>
+#include <QWebEngineView>
+#include <QWidget>
 
 MyRobot::MyRobot(QWidget *parent)
     : QMainWindow(parent)
@@ -17,11 +16,17 @@ MyRobot::MyRobot(QWidget *parent)
 
     connect(ui->connect,&QPushButton::clicked,this,&MyRobot::connection);
     connect(ui->disconnect,&QPushButton::clicked,this,&MyRobot::deconnection);
-    connect(ui->haut,&QPushButton::clicked,this,&MyRobot::haut);
-    connect(ui->bas,&QPushButton::clicked,this,&MyRobot::bas);
-    connect(ui->gauche,&QPushButton::clicked,this,&MyRobot::gauche);
-    connect(ui->droite,&QPushButton::clicked,this,&MyRobot::droite);
+    connect(ui->droite,&QPushButton::pressed,this,&MyRobot::droit);
+    connect(ui->droite,&QPushButton::released,this,&MyRobot::stop);
+    connect(ui->gauche,&QPushButton::pressed,this,&MyRobot::gauche);
+    connect(ui->gauche,&QPushButton::released,this,&MyRobot::stop);
+    connect(ui->haut,&QPushButton::pressed,this,&MyRobot::avancer);
+    connect(ui->haut,&QPushButton::released,this,&MyRobot::stop);
+    connect(ui->bas,&QPushButton::pressed,this,&MyRobot::reculer);
+    connect(ui->bas,&QPushButton::released,this,&MyRobot::stop);
 
+    QWebEngineView * video = new QWebEngineView();
+    afficheCamera(video);
 }
 
 MyRobot::~MyRobot()
@@ -29,31 +34,33 @@ MyRobot::~MyRobot()
     delete ui;
 }
 
+// bouton de connexion
 void MyRobot::connection(){
     WifiBot.doConnect();
 }
 
+// bouton de déconnexion
 void MyRobot::deconnection(){
     WifiBot.disConnect();
 }
 
-void MyRobot::haut(){
-    WifiBot.avancer();
+void MyRobot::droit(){
+    WifiBot.droite();
 }
-
-void MyRobot::bas(){
-    WifiBot.reculer();
-}
-
 void MyRobot::gauche(){
     WifiBot.gauche();
 }
-
-void MyRobot::droite(){
-    WifiBot.droite();
+void MyRobot::avancer(){
+    WifiBot.avancer();
+}
+void MyRobot::reculer(){
+    WifiBot.reculer();
+}
+void MyRobot::stop(){
+    WifiBot.stop();
 }
 
-//Contrôle du robot et de la caméra avec les différentes touche du clavier
+//Contrôle le déplacement du robot avec les différentes touche du clavier
 void MyRobot::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Z)
@@ -72,13 +79,21 @@ void MyRobot::keyPressEvent(QKeyEvent *event)
     {
         WifiBot.droite();
     }
+    if (event->key() == Qt::Key_Space)
+    {
+        WifiBot.stop();
+    }
 }
 
-void MyRobot::batterie() {
-    unsigned char data = (WifiBot.DataReceived[2] >> 2);
-    int bat = int(data);
-
-    ui->batterieBar->alignment();
+void MyRobot::afficheCamera(QWebEngineView *video){
+    video->setGeometry(0, 0, 451, 481);
+    QUrl URL = QUrl("http://192.168.1.106:8080/?action=stream");
+    video->load(URL);
+    video->setParent(ui->cam);
+    video->show();
 }
 
 
+void MyRobot::actualisation(){
+
+}

@@ -1,4 +1,3 @@
-
 #include "Robot.h"
 #include <iostream>
 
@@ -45,10 +44,10 @@ Robot::Robot(QObject *parent) : QObject(parent) {
     DataToSend[8] = 0x0;
     DataReceived.resize(21);
     TimerEnvoi = new QTimer();
+
     // setup signal and slot
     connect(TimerEnvoi, SIGNAL(timeout()), this, SLOT(MyTimerSlot())); //Send data to wifibot timer
 }
-
 
 
 //Fonction d'envoie du crc
@@ -58,17 +57,9 @@ void Robot::crcToSend(){
     DataToSend[7] = (char) crc;
     DataToSend[8] = (char) (crc >>8);
     DataReceived.resize(21);
-    // setup signal and slot
-}
-
-short Robot::crcReturn(){
-    unsigned char *dat=(unsigned char *)DataToSend.data();
-    short crc = Crc16(dat+1,6);
-    return crc;
 }
 
 void Robot::avancer(){
-    std::cout << "AVANCER" << std::endl;
     DataToSend[2] = 100;
     DataToSend[3] = 100 >> 8;
     DataToSend[4] = 100;
@@ -78,43 +69,40 @@ void Robot::avancer(){
     crcToSend();
 }
 void Robot::reculer(){
-    std::cout << "RECULER" << std::endl;
-    // VALEUR A DéFINIR
     DataToSend[2] = 100;
     DataToSend[3] = 100 >> 8;
     DataToSend[4] = 100;
     DataToSend[5] = 100 >> 8;
-    DataToSend[6] = 80;
+    DataToSend[6] = 0;
     // on calcul le crc et on l'envoi
     crcToSend();
 }
 void Robot::gauche(){
-    std::cout << "GAUCHE" << std::endl;
-    // VALEUR A DéFINIR
-    DataToSend[2] = 100;
-    DataToSend[3] = 100 >> 8;
-    DataToSend[4] = 100;
-    DataToSend[5] = 100 >> 8;
-    DataToSend[6] = 80;
+    DataToSend[2] = 50;
+    DataToSend[3] = 50 >> 8;
+    DataToSend[4] = 0;
+    DataToSend[5] = 0 >> 8;
+    DataToSend[6] = 16;
     // on calcul le crc et on l'envoi
     crcToSend();
 }
 void Robot::droite(){
-    std::cout << "DROITE" << std::endl;
-    // VALEUR A DéFINIR
-    DataToSend[2] = 100;
-    DataToSend[3] = 100 >> 8;
-    DataToSend[4] = 100;
-    DataToSend[5] = 100 >> 8;
-    DataToSend[6] = 80;
+    DataToSend[2] = 0;
+    DataToSend[3] = 0 >> 8;
+    DataToSend[4] = 50;
+    DataToSend[5] = 50 >> 8;
+    DataToSend[6] = 16;
     // on calcul le crc et on l'envoi
     crcToSend();
 }
-
-float Robot::test(){
-    unsigned char data = (DataReceived[1] >> 8);
-    float bat = float(data);
-    return bat;
+void Robot::stop(){
+    DataToSend[2] = 0;
+    DataToSend[3] = 0;
+    DataToSend[4] = 0;
+    DataToSend[5] = 0;
+    DataToSend[6] = 80;
+    // on calcul le crc et on l'envoi
+    crcToSend();
 }
 
 void Robot::doConnect() {
@@ -125,7 +113,7 @@ void Robot::doConnect() {
     connect(socket, SIGNAL(readyRead()),this, SLOT(readyRead()));
     qDebug() << "connecting..."; // this is not blocking call
     //socket->connectToHost("LOCALHOST", 15020);
-    socket->connectToHost("192.168.10.1", 5006); // connection to wifibot
+    socket->connectToHost("192.168.10.1", 5002); // connection to wifibot
     // we need to wait...
     if(!socket->waitForConnected(5000)) {
         qDebug() << "Error: " << socket->errorString();

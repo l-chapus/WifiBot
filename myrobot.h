@@ -1,10 +1,8 @@
-
 #ifndef MYROBOT_H
 #define MYROBOT_H
 
 #include <QMainWindow>
 #include "Robot.h"
-
 
 
 QT_BEGIN_NAMESPACE
@@ -22,17 +20,17 @@ public:
     void keyPressEvent(QKeyEvent *event);
     void connection();
     void deconnection();
-    void haut();
-    void bas();
-    void droite();
-    void gauche();
-
-    void batterie();
-
 
 private:
     Ui::MyRobot *ui;
     Robot WifiBot;
+    void droit();
+    void gauche();
+    void avancer();
+    void reculer();
+    void stop();
+    void afficheCamera(QWebEngineView *video);
+    void actualisation();
 };
 
 #endif // MYROBOT_H

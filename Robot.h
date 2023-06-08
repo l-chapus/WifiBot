@@ -1,7 +1,5 @@
-
 #ifndef ROBOT_H
 #define ROBOT_H
-
 
 #include <QObject>
 #include <QTcpSocket>
@@ -9,6 +7,7 @@
 #include <QDebug>
 #include <QTimer>
 #include <QMutex>
+#include <QWebEngineView>
 
 class Robot : public QObject {
     Q_OBJECT
@@ -19,13 +18,12 @@ public:
     QByteArray DataToSend;
     QByteArray DataReceived;
     QMutex Mutex;
-    float test();
     void crcToSend();
-    short crcReturn();
     void avancer();
     void reculer();
     void gauche();
     void droite();
+    void stop();
 
 signals:
     void updateUI(const QByteArray Data);
