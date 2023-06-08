@@ -24,10 +24,13 @@ public:
 private:
     Ui::MyRobot *ui;
     Robot WifiBot;
+
     void droit();
     void gauche();
     void avancer();
     void reculer();
+    void stop();
+    void afficherCamera(QWebEngineView *video);
 };
 
 #endif // MYROBOT_H

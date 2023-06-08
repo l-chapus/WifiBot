@@ -7,6 +7,7 @@
 #include <QKeyEvent>
 #include <QWebEngineView>
 #include <QWidget>
+#include <iostream>
 
 MyRobot::MyRobot(QWidget *parent)
     : QMainWindow(parent)
@@ -14,12 +15,23 @@ MyRobot::MyRobot(QWidget *parent)
 {
     ui->setupUi(this);
 
+    // gestion de connxion du robot
     connect(ui->connect,&QPushButton::clicked,this,&MyRobot::connection);
     connect(ui->disconnect,&QPushButton::clicked,this,&MyRobot::deconnection);
-    connect(ui->droit,&QPushButton::clicked,this,&MyRobot::droit);
-    connect(ui->gauche,&QPushButton::clicked,this,&MyRobot::gauche);
-    connect(ui->haut,&QPushButton::clicked,this,&MyRobot::avancer);
-    connect(ui->bas,&QPushButton::clicked,this,&MyRobot::reculer);
+
+    //mouvement du robot
+    connect(ui->droit,&QPushButton::pressed,this,&MyRobot::droit);
+    connect(ui->droit,&QPushButton::released,this,&MyRobot::stop);
+    connect(ui->gauche,&QPushButton::pressed,this,&MyRobot::gauche);
+    connect(ui->gauche,&QPushButton::released,this,&MyRobot::stop);
+    connect(ui->haut,&QPushButton::pressed,this,&MyRobot::avancer);
+    connect(ui->haut,&QPushButton::released,this,&MyRobot::stop);
+    connect(ui->bas,&QPushButton::pressed,this,&MyRobot::reculer);
+    connect(ui->bas,&QPushButton::released,this,&MyRobot::stop);
+
+    // affichage de la caméra
+    QWebEngineView *video = new QWebEngineView();
+    afficherCamera(video);
 }
 
 MyRobot::~MyRobot()
@@ -49,6 +61,9 @@ void MyRobot::avancer(){
 void MyRobot::reculer(){
     WifiBot.reculer();
 }
+void MyRobot::stop(){
+    WifiBot.stop();
+}
 
 //Contrôle le déplacement du robot avec les différentes touche du clavier
 void MyRobot::keyPressEvent(QKeyEvent *event)
@@ -57,20 +72,31 @@ void MyRobot::keyPressEvent(QKeyEvent *event)
     {
         WifiBot.avancer();
     }
-    if (event->key() == Qt::Key_Q)
+    else if (event->key() == Qt::Key_Q)
     {
         WifiBot.gauche();
     }
-    if (event->key() == Qt::Key_S)
+    else if (event->key() == Qt::Key_S)
     {
         WifiBot.reculer();
     }
-    if (event->key() == Qt::Key_D)
+    else if (event->key() == Qt::Key_D)
     {
         WifiBot.droite();
     }
-    if (event->key() == Qt::Key_Space)
+    else
+    //if (event->key() == Qt::Key_Space)
     {
         WifiBot.stop();
     }
+}
+
+void MyRobot::afficherCamera(QWebEngineView *video){
+    video -> setGeometry(0,0,451,481);
+    QUrl url = QUrl("https://192.168.1.106:8080/?action=stream");
+
+    //QUrl url = QUrl("https://192.168.10.1:8080/?action=stream");
+    video->load(url);
+    video->setParent(ui->cam);
+    video->show();
 }
