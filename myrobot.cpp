@@ -34,7 +34,7 @@ MyRobot::MyRobot(QWidget *parent)
     afficherCamera(video);
 
     // affichage des informations sur l'interface
-    afficherInformation();
+    //afficherInformation();
 }
 
 MyRobot::~MyRobot()

@@ -80,20 +80,20 @@ void Robot::reculer(){
     crcToSend();
 }
 void Robot::gauche(){
-    DataToSend[2] = 50;
-    DataToSend[3] = 50 >> 8;
-    DataToSend[4] = 0;
-    DataToSend[5] = 0 >> 8;
+    DataToSend[2] = 80;
+    DataToSend[3] = 80 >> 8;
+    DataToSend[4] = 80;
+    DataToSend[5] = 80 >> 8;
     DataToSend[6] = 16;
     // on calcul le crc et on l'envoi
     crcToSend();
 }
 void Robot::droite(){
-    DataToSend[2] = 0;
-    DataToSend[3] = 0 >> 8;
-    DataToSend[4] = 50;
-    DataToSend[5] = 50 >> 8;
-    DataToSend[6] = 16;
+    DataToSend[2] = 80;
+    DataToSend[3] = 80 >> 8;
+    DataToSend[4] = 80;
+    DataToSend[5] = 80 >> 8;
+    DataToSend[6] = 64;
     // on calcul le crc et on l'envoi
     crcToSend();
 }
@@ -115,8 +115,10 @@ void Robot::doConnect() {
     connect(socket, SIGNAL(readyRead()),this, SLOT(readyRead()));
     //connect(socket, SIGNAL(donneRecu()),this, SLOT(donneRecu()));
     qDebug() << "connecting..."; // this is not blocking call
-    //socket->connectToHost("LOCALHOST", 15020);
-    socket->connectToHost("192.168.10.1", 5002); // connection to wifibot
+
+    socket->connectToHost("192.168.1.106", 15020);
+    //socket->connectToHost("192.168.10.1", 5002); // connection to wifibot
+
     // we need to wait...
     if(!socket->waitForConnected(5000)) {
         qDebug() << "Error: " << socket->errorString();
