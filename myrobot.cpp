@@ -20,8 +20,8 @@ MyRobot::MyRobot(QWidget *parent)
     connect(ui->disconnect,&QPushButton::clicked,this,&MyRobot::deconnection);
 
     //mouvement du robot
-    connect(ui->droit,&QPushButton::pressed,this,&MyRobot::droit);
-    connect(ui->droit,&QPushButton::released,this,&MyRobot::stop);
+    connect(ui->droite,&QPushButton::pressed,this,&MyRobot::droit);
+    connect(ui->droite,&QPushButton::released,this,&MyRobot::stop);
     connect(ui->gauche,&QPushButton::pressed,this,&MyRobot::gauche);
     connect(ui->gauche,&QPushButton::released,this,&MyRobot::stop);
     connect(ui->haut,&QPushButton::pressed,this,&MyRobot::avancer);
@@ -51,7 +51,7 @@ void MyRobot::connection(){
 // bouton de déconnexion
 void MyRobot::deconnection(){
     WifiBot.disConnect();
-    etat = true;
+    etat = false;
 }
 
 void MyRobot::droit(){
@@ -114,7 +114,7 @@ void MyRobot::afficherInformation(){
         float bat = float(batterie);
 
         QLCDNumber *lcdnumber = new QLCDNumber;
-        lcdnumber = ui->crcNum;
+        lcdnumber = ui->odometrieG;
         int value = bat;
         lcdnumber->display(value);
     }
