@@ -32,7 +32,9 @@ private:
     void reculer();
     void stop();
     void afficherCamera(QWebEngineView *video);
-    void afficherInformation();
+
+public slots:
+    void afficherInformation(QByteArray data);
 
 };
 

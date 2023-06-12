@@ -27,19 +27,6 @@
      <string>Connect</string>
     </property>
    </widget>
-   <widget class="QSlider" name="vitessebarG">
-    <property name="geometry">
-     <rect>
-      <x>550</x>
-      <y>330</y>
-      <width>22</width>
-      <height>160</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
-    </property>
-   </widget>
    <widget class="QPushButton" name="disconnect">
     <property name="geometry">
      <rect>
@@ -74,8 +61,8 @@
    <widget class="QLabel" name="vitesseD">
     <property name="geometry">
      <rect>
-      <x>820</x>
-      <y>280</y>
+      <x>860</x>
+      <y>230</y>
       <width>101</width>
       <height>41</height>
      </rect>
@@ -93,7 +80,7 @@
     <property name="geometry">
      <rect>
       <x>520</x>
-      <y>280</y>
+      <y>230</y>
       <width>111</width>
       <height>41</height>
      </rect>
@@ -165,7 +152,7 @@
     <property name="geometry">
      <rect>
       <x>680</x>
-      <y>350</y>
+      <y>360</y>
       <width>75</width>
       <height>32</height>
      </rect>
@@ -182,7 +169,7 @@
    <widget class="QPushButton" name="gauche">
     <property name="geometry">
      <rect>
-      <x>590</x>
+      <x>600</x>
       <y>400</y>
       <width>72</width>
       <height>35</height>
@@ -200,7 +187,7 @@
    <widget class="QPushButton" name="droite">
     <property name="geometry">
      <rect>
-      <x>770</x>
+      <x>760</x>
       <y>400</y>
       <width>72</width>
       <height>35</height>
@@ -218,10 +205,10 @@
    <widget class="QPushButton" name="bas">
     <property name="geometry">
      <rect>
-      <x>680</x>
-      <y>450</y>
+      <x>681</x>
+      <y>441</y>
       <width>75</width>
-      <height>32</height>
+      <height>35</height>
      </rect>
     </property>
     <property name="font">
@@ -231,19 +218,6 @@
     </property>
     <property name="text">
      <string>v</string>
-    </property>
-   </widget>
-   <widget class="QSlider" name="vitesseBarD">
-    <property name="geometry">
-     <rect>
-      <x>870</x>
-      <y>330</y>
-      <width>22</width>
-      <height>160</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
     </property>
    </widget>
    <widget class="QLCDNumber" name="odometrieG">
@@ -266,41 +240,61 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLCDNumber" name="lcdArG">
+   <widget class="QLCDNumber" name="infraGauche">
     <property name="geometry">
      <rect>
-      <x>590</x>
-      <y>450</y>
+      <x>520</x>
+      <y>402</y>
+      <width>64</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="infraDeriere">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>490</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="infraDroite">
+    <property name="geometry">
+     <rect>
+      <x>850</x>
+      <y>400</y>
+      <width>64</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="infraDevant">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>312</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="vitesseGauche">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>270</y>
       <width>64</width>
       <height>23</height>
      </rect>
     </property>
    </widget>
-   <widget class="QLCDNumber" name="lcdArD">
+   <widget class="QLCDNumber" name="vitesseDroite">
     <property name="geometry">
      <rect>
-      <x>770</x>
-      <y>450</y>
-      <width>64</width>
-      <height>23</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLCDNumber" name="lcdAvD">
-    <property name="geometry">
-     <rect>
-      <x>770</x>
-      <y>360</y>
-      <width>64</width>
-      <height>23</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLCDNumber" name="lcdAvG">
-    <property name="geometry">
-     <rect>
-      <x>590</x>
-      <y>360</y>
+      <x>870</x>
+      <y>270</y>
       <width>64</width>
       <height>23</height>
      </rect>

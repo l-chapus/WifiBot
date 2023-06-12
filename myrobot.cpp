@@ -34,6 +34,7 @@ MyRobot::MyRobot(QWidget *parent)
     afficherCamera(video);
 
     // affichage des informations sur l'interface
+    connect(&WifiBot, SIGNAL(updateUI(QByteArray)),this, SLOT(afficherInformation(QByteArray)));
     //afficherInformation();
 }
 
@@ -106,16 +107,40 @@ void MyRobot::afficherCamera(QWebEngineView *video){
     video->show();
 }
 
-void MyRobot::afficherInformation(){
-    // regarde si le robot est connecter ou pas
+void MyRobot::afficherInformation(QByteArray data){
+    // regarde si le robot est connecté ou pas
     if(etat){
-        QByteArray data = WifiBot.donneRecu();
-        unsigned char batterie = (data[2] >> 2);
-        float bat = float(batterie);
 
-        QLCDNumber *lcdnumber = new QLCDNumber;
-        lcdnumber = ui->odometrieG;
-        int value = bat;
-        lcdnumber->display(value);
+        // affichage de la batterie
+
+        float batterie = float(data[2] >> 2);
+        ui->vitesseDroite->display(int(batterie));
+
+
+        // affichage de la vitesse
+
+        float vit = float(-data[1] >> 8);
+        ui->vitesseGauche->display(int(vit));
+
+        // affichage des données infrarouge
+
+        float infraDevant = float(data[11]);
+        ui->infraDevant->display(abs(int(infraDevant)));
+        float infraDeriere = float(data[12]);
+        ui->infraDeriere->display(abs(int(infraDeriere)));
+        float infraGauche = float(data[3]);
+        ui->infraGauche->display(abs(int(infraGauche)));
+        float infraDroite = float(data[4]);
+        ui->infraDroite->display(abs(int(infraDroite)));
+
+
+        // affichage de la position du robot
+
+        float odometrieG = ((((long)data[8] << 24)) + (((long)data[7] << 16)) + (((long)data[6] <<8)) + ((long)data[5]));
+        ui->odometrieG->display(int(odometrieG));
+
+        float odometrieD = ((((long)data[16] << 24)) + (((long)data[15] << 16)) + (((long)data[14] << 8)) + ((long)data[13]));
+        ui->odometrieD->display(int(odometrieD));
+
     }
 }

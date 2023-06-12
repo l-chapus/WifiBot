@@ -113,7 +113,6 @@ void Robot::doConnect() {
     connect(socket, SIGNAL(disconnected()),this, SLOT(disconnected()));
     connect(socket, SIGNAL(bytesWritten(qint64)),this, SLOT(bytesWritten(qint64)));
     connect(socket, SIGNAL(readyRead()),this, SLOT(readyRead()));
-    //connect(socket, SIGNAL(donneRecu()),this, SLOT(donneRecu()));
     qDebug() << "connecting..."; // this is not blocking call
 
     socket->connectToHost("192.168.1.106", 15020);
