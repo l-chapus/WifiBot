@@ -1,4 +1,3 @@
-#include "Robot.h"
 #include "myrobot.h"
 
 #include <QApplication>
@@ -9,14 +8,6 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    Robot WifiBot;
-
-    //WifiBot.doConnect();
-
-    //WifiBot.avancer();
-    //std::cout << "Données reçues (hexadécimal) : " << WifiBot.test() << std::endl;
-
-    //WifiBot.disConnect();
 
     MyRobot w;
     w.show();

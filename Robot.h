@@ -7,8 +7,7 @@
 #include <QDebug>
 #include <QTimer>
 #include <QMutex>
-
-//#include <QWebEngineView>
+#include <QWebEngineView>
 
 class Robot : public QObject {
     Q_OBJECT
@@ -19,12 +18,13 @@ public:
     QByteArray DataToSend;
     QByteArray DataReceived;
     QMutex Mutex;
-    float test();
     void crcToSend();
     void avancer();
     void reculer();
     void gauche();
     void droite();
+    void stop();
+QByteArray donneRecu();
 
 signals:
     void updateUI(const QByteArray Data);
@@ -35,6 +35,7 @@ public slots:
     void bytesWritten(qint64 bytes);
     void readyRead();
     void MyTimerSlot();
+
 
 private:
     QTcpSocket *socket;

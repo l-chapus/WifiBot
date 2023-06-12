@@ -18,10 +18,24 @@ public:
     MyRobot(QWidget *parent = nullptr);
     ~MyRobot();
     void keyPressEvent(QKeyEvent *event);
+    void connection();
+    void deconnection();
 
 private:
     Ui::MyRobot *ui;
     Robot WifiBot;
+    bool etat =false;
+
+    void droit();
+    void gauche();
+    void avancer();
+    void reculer();
+    void stop();
+    void afficherCamera(QWebEngineView *video);
+
+public slots:
+    void afficherInformation(QByteArray data);
+
 };
 
 #endif // MYROBOT_H

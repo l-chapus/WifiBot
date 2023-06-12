@@ -6,205 +6,79 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>911</width>
-    <height>630</height>
+    <width>972</width>
+    <height>586</height>
    </rect>
-  </property>
-  <property name="sizePolicy">
-   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-    <horstretch>0</horstretch>
-    <verstretch>0</verstretch>
-   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>MyRobot</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: qlineargradient(spread:pad, x1:0.509434, y1:0, x2:0.514151, y2:1, stop:0 rgba(0, 0, 189, 255), stop:1 rgba(140, 199, 219, 255));</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="haut">
+   <widget class="QPushButton" name="connect">
     <property name="geometry">
      <rect>
-      <x>660</x>
-      <y>330</y>
+      <x>821</x>
+      <y>41</y>
       <width>75</width>
-      <height>32</height>
+      <height>24</height>
      </rect>
     </property>
-    <property name="font">
-     <font>
-      <pointsize>15</pointsize>
-     </font>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 255, 127);</string>
     </property>
     <property name="text">
-     <string>^</string>
+     <string>Connect</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="gauche">
+   <widget class="QPushButton" name="disconnect">
     <property name="geometry">
      <rect>
-      <x>570</x>
-      <y>380</y>
-      <width>72</width>
-      <height>35</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>15</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>&lt;</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="droit">
-    <property name="geometry">
-     <rect>
-      <x>750</x>
-      <y>380</y>
-      <width>72</width>
-      <height>35</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>15</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>&gt;</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="bas">
-    <property name="geometry">
-     <rect>
-      <x>660</x>
-      <y>430</y>
+      <x>821</x>
+      <y>71</y>
       <width>75</width>
-      <height>32</height>
+      <height>24</height>
      </rect>
     </property>
-    <property name="font">
-     <font>
-      <pointsize>15</pointsize>
-     </font>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 0, 0);</string>
     </property>
     <property name="text">
-     <string>v</string>
-    </property>
-   </widget>
-   <widget class="QSpinBox" name="spinBoxGH">
-    <property name="geometry">
-     <rect>
-      <x>590</x>
-      <y>340</y>
-      <width>42</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>11</pointsize>
-     </font>
-    </property>
-   </widget>
-   <widget class="QSpinBox" name="spinBoxGB">
-    <property name="geometry">
-     <rect>
-      <x>590</x>
-      <y>430</y>
-      <width>42</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>11</pointsize>
-     </font>
-    </property>
-   </widget>
-   <widget class="QSpinBox" name="spinBoxDH">
-    <property name="geometry">
-     <rect>
-      <x>760</x>
-      <y>340</y>
-      <width>42</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>11</pointsize>
-     </font>
-    </property>
-   </widget>
-   <widget class="QSpinBox" name="spinBoxDB">
-    <property name="geometry">
-     <rect>
-      <x>760</x>
-      <y>430</y>
-      <width>42</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>11</pointsize>
-     </font>
+     <string>Disconnect</string>
     </property>
    </widget>
    <widget class="QLabel" name="odometrie">
     <property name="geometry">
      <rect>
-      <x>520</x>
-      <y>129</y>
-      <width>95</width>
-      <height>27</height>
+      <x>521</x>
+      <y>146</y>
+      <width>106</width>
+      <height>29</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <pointsize>15</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(188, 188, 188);
+border-radius: 5px;
+border: 1px solid rgb(255, 255, 255) ;</string>
     </property>
     <property name="text">
      <string>Odométrie</string>
     </property>
    </widget>
-   <widget class="QLabel" name="crc">
+   <widget class="QLabel" name="vitesseD">
     <property name="geometry">
      <rect>
-      <x>520</x>
-      <y>60</y>
-      <width>60</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>15</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>CRC = </string>
-    </property>
-   </widget>
-   <widget class="QLCDNumber" name="crcNum">
-    <property name="geometry">
-     <rect>
-      <x>586</x>
-      <y>60</y>
-      <width>64</width>
-      <height>23</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QDoubleSpinBox" name="odometrieBox">
-    <property name="geometry">
-     <rect>
-      <x>621</x>
-      <y>131</y>
-      <width>50</width>
-      <height>25</height>
+      <x>840</x>
+      <y>240</y>
+      <width>101</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="font">
@@ -212,12 +86,66 @@
       <pointsize>11</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(188, 188, 188);
+border-radius: 5px;
+border: 1px solid rgb(255, 255, 255) ;</string>
+    </property>
+    <property name="text">
+     <string>Vitesse Droite</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="vitessG">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>240</y>
+      <width>111</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(188, 188, 188);
+border-radius: 5px;
+border: 1px solid rgb(255, 255, 255) ;</string>
+    </property>
+    <property name="text">
+     <string>Vitesse Gauche</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="batterie">
+    <property name="geometry">
+     <rect>
+      <x>522</x>
+      <y>111</y>
+      <width>92</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>15</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(188, 188, 188);
+border-radius: 5px;
+border: 1px solid rgb(255, 255, 255) ;</string>
+    </property>
+    <property name="text">
+     <string>Batterie : </string>
+    </property>
    </widget>
    <widget class="QScrollArea" name="camera">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>30</y>
+      <x>50</x>
+      <y>50</y>
       <width>451</width>
       <height>481</height>
      </rect>
@@ -236,114 +164,13 @@
      </property>
     </widget>
    </widget>
-   <widget class="QSlider" name="vitesseBarD">
+   <widget class="QPushButton" name="haut">
     <property name="geometry">
      <rect>
-      <x>850</x>
-      <y>310</y>
-      <width>22</width>
-      <height>160</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
-    </property>
-   </widget>
-   <widget class="QSlider" name="vitessebarG">
-    <property name="geometry">
-     <rect>
-      <x>530</x>
-      <y>310</y>
-      <width>22</width>
-      <height>160</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
-    </property>
-   </widget>
-   <widget class="QLabel" name="vitessG">
-    <property name="geometry">
-     <rect>
-      <x>500</x>
-      <y>260</y>
-      <width>111</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>11</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Vitesse Gauche</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="vitesseD">
-    <property name="geometry">
-     <rect>
-      <x>800</x>
-      <y>260</y>
-      <width>101</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>11</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Vitesse Droite</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="connect">
-    <property name="geometry">
-     <rect>
-      <x>801</x>
-      <y>21</y>
+      <x>680</x>
+      <y>360</y>
       <width>75</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Connect</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="disconnect">
-    <property name="geometry">
-     <rect>
-      <x>801</x>
-      <y>51</y>
-      <width>75</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Disconnect</string>
-    </property>
-   </widget>
-   <widget class="QProgressBar" name="batterieBar">
-    <property name="geometry">
-     <rect>
-      <x>607</x>
-      <y>95</y>
-      <width>108</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="value">
-     <number>24</number>
-    </property>
-   </widget>
-   <widget class="QLabel" name="batterie">
-    <property name="geometry">
-     <rect>
-      <x>520</x>
-      <y>94</y>
-      <width>81</width>
-      <height>27</height>
+      <height>32</height>
      </rect>
     </property>
     <property name="font">
@@ -351,8 +178,205 @@
       <pointsize>15</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 127);
+color: rgb(255, 255, 255);</string>
+    </property>
     <property name="text">
-     <string>Batterie : </string>
+     <string>^</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="gauche">
+    <property name="geometry">
+     <rect>
+      <x>600</x>
+      <y>400</y>
+      <width>72</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>15</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 127);
+color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>&lt;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="droite">
+    <property name="geometry">
+     <rect>
+      <x>760</x>
+      <y>400</y>
+      <width>72</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>15</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 127);
+color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>&gt;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="bas">
+    <property name="geometry">
+     <rect>
+      <x>681</x>
+      <y>441</y>
+      <width>75</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>15</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 127);
+color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>v</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="odometrieG">
+    <property name="geometry">
+     <rect>
+      <x>642</x>
+      <y>151</y>
+      <width>64</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(104, 104, 104);
+color: rgb(255, 255, 255);</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="odometrieD">
+    <property name="geometry">
+     <rect>
+      <x>712</x>
+      <y>151</y>
+      <width>64</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(104, 104, 104);
+color: rgb(255, 255, 255);</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="infraHautGauche">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>340</y>
+      <width>64</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(104, 104, 104);
+color: rgb(255, 255, 255);</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="infraBasGauche">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>470</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(104, 104, 104);
+color: rgb(255, 255, 255);</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="infraBasDroit">
+    <property name="geometry">
+     <rect>
+      <x>800</x>
+      <y>470</y>
+      <width>64</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(104, 104, 104);
+color: rgb(255, 255, 255);</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="infraHautDroit">
+    <property name="geometry">
+     <rect>
+      <x>800</x>
+      <y>340</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(104, 104, 104);
+color: rgb(255, 255, 255);</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="vitesseGauche">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>270</y>
+      <width>64</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(104, 104, 104);
+color: rgb(255, 255, 255);</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="vitesseDroite">
+    <property name="geometry">
+     <rect>
+      <x>860</x>
+      <y>270</y>
+      <width>64</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(104, 104, 104);
+color: rgb(255, 255, 255);
+</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdBatterie">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>115</y>
+      <width>64</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(104, 104, 104);
+color: rgb(255, 255, 255);</string>
     </property>
    </widget>
   </widget>
@@ -361,7 +385,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>911</width>
+     <width>972</width>
      <height>22</height>
     </rect>
    </property>
