@@ -57,7 +57,7 @@ void Robot::crcToSend(){
     unsigned char *dat=(unsigned char *)DataToSend.data();
     short crc = Crc16(dat+1,6);
     DataToSend[7] = (char) crc;
-    DataToSend[8] = (char) (crc >>8);
+    DataToSend[8] = (char) (crc >> 8);
     DataReceived.resize(21);
 }
 

@@ -280,11 +280,11 @@ color: rgb(255, 255, 255);</string>
 color: rgb(255, 255, 255);</string>
     </property>
    </widget>
-   <widget class="QLCDNumber" name="infraGauche">
+   <widget class="QLCDNumber" name="infraHautGauche">
     <property name="geometry">
      <rect>
-      <x>520</x>
-      <y>402</y>
+      <x>580</x>
+      <y>340</y>
       <width>64</width>
       <height>31</height>
      </rect>
@@ -294,11 +294,11 @@ color: rgb(255, 255, 255);</string>
 color: rgb(255, 255, 255);</string>
     </property>
    </widget>
-   <widget class="QLCDNumber" name="infraDeriere">
+   <widget class="QLCDNumber" name="infraBasGauche">
     <property name="geometry">
      <rect>
-      <x>680</x>
-      <y>490</y>
+      <x>580</x>
+      <y>470</y>
       <width>71</width>
       <height>31</height>
      </rect>
@@ -308,11 +308,11 @@ color: rgb(255, 255, 255);</string>
 color: rgb(255, 255, 255);</string>
     </property>
    </widget>
-   <widget class="QLCDNumber" name="infraDroite">
+   <widget class="QLCDNumber" name="infraBasDroit">
     <property name="geometry">
      <rect>
-      <x>850</x>
-      <y>400</y>
+      <x>800</x>
+      <y>470</y>
       <width>64</width>
       <height>31</height>
      </rect>
@@ -322,11 +322,11 @@ color: rgb(255, 255, 255);</string>
 color: rgb(255, 255, 255);</string>
     </property>
    </widget>
-   <widget class="QLCDNumber" name="infraDevant">
+   <widget class="QLCDNumber" name="infraHautDroit">
     <property name="geometry">
      <rect>
-      <x>680</x>
-      <y>312</y>
+      <x>800</x>
+      <y>340</y>
       <width>71</width>
       <height>31</height>
      </rect>

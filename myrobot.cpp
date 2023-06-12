@@ -98,9 +98,7 @@ void MyRobot::keyPressEvent(QKeyEvent *event)
 
 void MyRobot::afficherCamera(QWebEngineView *video){
     video -> setGeometry(0,0,451,481);
-    QUrl url = QUrl("https://192.168.1.106:8080/?action=stream");
-
-    //QUrl url = QUrl("https://192.168.10.1:8080/?action=stream");
+    QUrl url = QUrl("http://192.168.1.106:8080/?action=stream");
     video->load(url);
     video->setParent(ui->cam);
     video->show();
@@ -116,7 +114,7 @@ void MyRobot::afficherInformation(QByteArray data){
         if(batterie < 0){
             batterie += 255;
         }
-        batterie = batterie*100/255 ;
+        batterie = (batterie*100)/255 ;
         ui->lcdBatterie->display(int(batterie));
 
 
@@ -130,14 +128,14 @@ void MyRobot::afficherInformation(QByteArray data){
 
         // affichage des données infrarouge
 
-        float infraDevant = float(data[11]);
-        ui->infraDevant->display(abs(int(infraDevant)));
-        float infraDeriere = float(data[12]);
-        ui->infraDeriere->display(abs(int(infraDeriere)));
-        float infraGauche = float(data[3]);
-        ui->infraGauche->display(abs(int(infraGauche)));
-        float infraDroite = float(data[4]);
-        ui->infraDroite->display(abs(int(infraDroite)));
+        float infraHautDroit = float(data[11]);
+        ui->infraHautDroit->display(abs(int(infraHautDroit)));
+        float infraBasGauche = float(data[12]);
+        ui->infraBasGauche->display(abs(int(infraBasGauche)));
+        float infraHautGauche = float(data[3]);
+        ui->infraHautGauche->display(abs(int(infraHautGauche)));
+        float infraBasDroit = float(data[4]);
+        ui->infraBasDroit->display(abs(int(infraBasDroit)));
 
 
         // affichage de la position du robot
