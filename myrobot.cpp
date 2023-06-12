@@ -35,7 +35,6 @@ MyRobot::MyRobot(QWidget *parent)
 
     // affichage des informations sur l'interface
     connect(&WifiBot, SIGNAL(updateUI(QByteArray)),this, SLOT(afficherInformation(QByteArray)));
-    //afficherInformation();
 }
 
 MyRobot::~MyRobot()
@@ -114,13 +113,20 @@ void MyRobot::afficherInformation(QByteArray data){
         // affichage de la batterie
 
         float batterie = float(data[2] >> 2);
-        ui->vitesseDroite->display(int(batterie));
+        if(batterie < 0){
+            batterie += 255;
+        }
+        batterie = batterie*100/255 ;
+        ui->lcdBatterie->display(int(batterie));
 
 
         // affichage de la vitesse
 
-        float vit = float(-data[1] >> 8);
-        ui->vitesseGauche->display(int(vit));
+        float vitGauche = float(data[0]);
+        ui->vitesseGauche->display(int(vitGauche));
+        float vitDroite = float(data[9]);
+        ui->vitesseDroite->display(int(vitDroite));
+
 
         // affichage des données infrarouge
 

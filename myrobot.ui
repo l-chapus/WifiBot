@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>MyRobot</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: qlineargradient(spread:pad, x1:0.509434, y1:0, x2:0.514151, y2:1, stop:0 rgba(0, 0, 189, 255), stop:1 rgba(140, 199, 219, 255));</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="connect">
     <property name="geometry">
@@ -22,6 +25,9 @@
       <width>75</width>
       <height>24</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 255, 127);</string>
     </property>
     <property name="text">
      <string>Connect</string>
@@ -36,6 +42,9 @@
       <height>24</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 0, 0);</string>
+    </property>
     <property name="text">
      <string>Disconnect</string>
     </property>
@@ -43,16 +52,21 @@
    <widget class="QLabel" name="odometrie">
     <property name="geometry">
      <rect>
-      <x>540</x>
-      <y>149</y>
-      <width>95</width>
-      <height>27</height>
+      <x>521</x>
+      <y>146</y>
+      <width>106</width>
+      <height>29</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <pointsize>15</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(188, 188, 188);
+border-radius: 5px;
+border: 1px solid rgb(255, 255, 255) ;</string>
     </property>
     <property name="text">
      <string>Odométrie</string>
@@ -61,16 +75,21 @@
    <widget class="QLabel" name="vitesseD">
     <property name="geometry">
      <rect>
-      <x>860</x>
-      <y>230</y>
+      <x>840</x>
+      <y>240</y>
       <width>101</width>
-      <height>41</height>
+      <height>21</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <pointsize>11</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(188, 188, 188);
+border-radius: 5px;
+border: 1px solid rgb(255, 255, 255) ;</string>
     </property>
     <property name="text">
      <string>Vitesse Droite</string>
@@ -80,15 +99,20 @@
     <property name="geometry">
      <rect>
       <x>520</x>
-      <y>230</y>
+      <y>240</y>
       <width>111</width>
-      <height>41</height>
+      <height>21</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <pointsize>11</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(188, 188, 188);
+border-radius: 5px;
+border: 1px solid rgb(255, 255, 255) ;</string>
     </property>
     <property name="text">
      <string>Vitesse Gauche</string>
@@ -97,16 +121,21 @@
    <widget class="QLabel" name="batterie">
     <property name="geometry">
      <rect>
-      <x>540</x>
-      <y>114</y>
-      <width>81</width>
-      <height>27</height>
+      <x>522</x>
+      <y>111</y>
+      <width>92</width>
+      <height>29</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <pointsize>15</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(188, 188, 188);
+border-radius: 5px;
+border: 1px solid rgb(255, 255, 255) ;</string>
     </property>
     <property name="text">
      <string>Batterie : </string>
@@ -135,19 +164,6 @@
      </property>
     </widget>
    </widget>
-   <widget class="QProgressBar" name="batterieBar">
-    <property name="geometry">
-     <rect>
-      <x>627</x>
-      <y>115</y>
-      <width>108</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="value">
-     <number>24</number>
-    </property>
-   </widget>
    <widget class="QPushButton" name="haut">
     <property name="geometry">
      <rect>
@@ -161,6 +177,10 @@
      <font>
       <pointsize>15</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 127);
+color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>^</string>
@@ -180,6 +200,10 @@
       <pointsize>15</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 127);
+color: rgb(255, 255, 255);</string>
+    </property>
     <property name="text">
      <string>&lt;</string>
     </property>
@@ -197,6 +221,10 @@
      <font>
       <pointsize>15</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 127);
+color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>&gt;</string>
@@ -216,6 +244,10 @@
       <pointsize>15</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 127);
+color: rgb(255, 255, 255);</string>
+    </property>
     <property name="text">
      <string>v</string>
     </property>
@@ -229,6 +261,10 @@
       <height>23</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(104, 104, 104);
+color: rgb(255, 255, 255);</string>
+    </property>
    </widget>
    <widget class="QLCDNumber" name="odometrieD">
     <property name="geometry">
@@ -238,6 +274,10 @@
       <width>64</width>
       <height>23</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(104, 104, 104);
+color: rgb(255, 255, 255);</string>
     </property>
    </widget>
    <widget class="QLCDNumber" name="infraGauche">
@@ -249,6 +289,10 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(104, 104, 104);
+color: rgb(255, 255, 255);</string>
+    </property>
    </widget>
    <widget class="QLCDNumber" name="infraDeriere">
     <property name="geometry">
@@ -258,6 +302,10 @@
       <width>71</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(104, 104, 104);
+color: rgb(255, 255, 255);</string>
     </property>
    </widget>
    <widget class="QLCDNumber" name="infraDroite">
@@ -269,6 +317,10 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(104, 104, 104);
+color: rgb(255, 255, 255);</string>
+    </property>
    </widget>
    <widget class="QLCDNumber" name="infraDevant">
     <property name="geometry">
@@ -278,6 +330,10 @@
       <width>71</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(104, 104, 104);
+color: rgb(255, 255, 255);</string>
     </property>
    </widget>
    <widget class="QLCDNumber" name="vitesseGauche">
@@ -289,15 +345,38 @@
       <height>23</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(104, 104, 104);
+color: rgb(255, 255, 255);</string>
+    </property>
    </widget>
    <widget class="QLCDNumber" name="vitesseDroite">
     <property name="geometry">
      <rect>
-      <x>870</x>
+      <x>860</x>
       <y>270</y>
       <width>64</width>
       <height>23</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(104, 104, 104);
+color: rgb(255, 255, 255);
+</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdBatterie">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>115</y>
+      <width>64</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(104, 104, 104);
+color: rgb(255, 255, 255);</string>
     </property>
    </widget>
   </widget>
