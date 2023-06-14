@@ -15,7 +15,7 @@ MyRobot::MyRobot(QWidget *parent)
 {
     ui->setupUi(this);
 
-    // gestion de connxion du robot
+    // gestion de connexion du robot
     connect(ui->connect,&QPushButton::clicked,this,&MyRobot::connection);
     connect(ui->disconnect,&QPushButton::clicked,this,&MyRobot::deconnection);
 
@@ -33,7 +33,7 @@ MyRobot::MyRobot(QWidget *parent)
     QWebEngineView *video = new QWebEngineView();
     afficherCamera(video);
 
-    // affichage des informations sur l'interface
+    // affichage et mise à jour des informations sur l'interface
     connect(&WifiBot, SIGNAL(updateUI(QByteArray)),this, SLOT(afficherInformation(QByteArray)));
 }
 
@@ -54,6 +54,7 @@ void MyRobot::deconnection(){
     etat = false;
 }
 
+// fonctions pour déplacer le robot
 void MyRobot::droit(){
     WifiBot.droite();
 }
@@ -96,6 +97,7 @@ void MyRobot::keyPressEvent(QKeyEvent *event)
     }
 }
 
+// Affichage de la caméra
 void MyRobot::afficherCamera(QWebEngineView *video){
     video -> setGeometry(0,0,451,481);
     QUrl url = QUrl("http://192.168.1.106:8080/?action=stream");
@@ -140,8 +142,8 @@ void MyRobot::afficherInformation(QByteArray data){
 
         // affichage de la position du robot
 
-        float odometrieG = ((((long)data[8] << 24)) + (((long)data[7] << 16)) + (((long)data[6] <<8)) + ((long)data[5]));
-        ui->odometrieG->display(int(odometrieG));
+        float odometrieG = ((((long)data[8] << 24)) + (((long)data[7] << 16)) + (((long)data[6] << 8)) + ((long)data[5]));
+        ui->odometrieG->display(odometrieG);
 
         float odometrieD = ((((long)data[16] << 24)) + (((long)data[15] << 16)) + (((long)data[14] << 8)) + ((long)data[13]));
         ui->odometrieD->display(int(odometrieD));

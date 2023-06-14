@@ -24,7 +24,6 @@ public:
     void gauche();
     void droite();
     void stop();
-QByteArray donneRecu();
 
 signals:
     void updateUI(const QByteArray Data);

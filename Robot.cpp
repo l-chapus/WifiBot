@@ -148,14 +148,7 @@ void Robot::readyRead() {
     qDebug() << "reading..."; // read the data from the socket
     DataReceived = socket->readAll();
     emit updateUI(DataReceived);
-    //qDebug() << DataReceived[0] << DataReceived[1] << DataReceived[2];
-}
-
-// renvoie les données reçu par le robot
-QByteArray Robot::donneRecu(){
-    DataReceived = socket->readAll();
-    emit updateUI(DataReceived);
-    return DataReceived;
+    //qDebug() <<;
 }
 
 void Robot::MyTimerSlot() {
